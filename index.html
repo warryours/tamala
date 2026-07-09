@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Tamala</title>
+  <link rel="manifest" href="manifest.json">
+  
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="GAS-App">
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      background-color: #ffffff;
+    }
+    iframe {
+      border: none;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <iframe src="https://script.google.com/macros/s/AKfycbxV31HxlQ4jTCCkZgINFwyj-m2ozdk3eWGeHN9C15sGcZdgVUoxShmGzD5eCucMpzUg/exec"></iframe>
+
+  <script>
+    // Mendaftarkan Service Worker otomatis
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+          .then((reg) => console.log('PWA Berhasil Didaftarkan!', reg.scope))
+          .catch((err) => console.log('Pendaftaran PWA Gagal:', err));
+      });
+    }
+  </script>
+</body>
+</html>
